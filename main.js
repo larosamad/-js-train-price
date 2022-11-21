@@ -5,9 +5,9 @@ va applicato uno sconto del 20% per i minorenni
 va applicato uno sconto del 40% per gli over 65.
 L'output del prezzo finale va messo fuori in forma umana (con massimo due decimali, per indicare centesimi sul prezzo). */
 
-
+/*
 let km = prompt('Quanti chilometri vuoi percorrere?') 
-// console.log(km);
+console.log(km);
 
 let pricekm = 0.21
 
@@ -15,7 +15,7 @@ let price = pricekm * km
 console.log(`${price} euro`);
 
 let eta = prompt('Quanti anni hai?')
-// console.log(eta);
+console.log(eta);
 
 if(eta < 18){
     pricemin = price - (price / 100 * 20)
@@ -26,3 +26,29 @@ if(eta < 18){
 }else{
     console.log(`${price} euro`)
 }
+*/
+
+function prezzofinale(){
+    let km = document.getElementById('km').value;
+    console.log(km);
+    let eta = document.getElementById('eta').value;
+    console.log(eta);
+    let pricekm = 0.21;
+    let price = pricekm * km;
+    console.log(price);
+
+    if(eta < 18) {
+        price = price - (price / 100 * 20);
+        console.log('minorenne')
+    }else if(eta > 65){
+        price = price - (price / 100 * 40);
+        console.log('over65')
+    }else{
+        price = price
+        console.log('paghi normale');
+    }
+    console.log(price);
+    document.getElementById('prezzo').innerHTML=`Il prezzo del tuo biglietto è ${price.toFixed(2)} euro`;
+}
+
+
